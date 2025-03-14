@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap & FontAwesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <title>Meaty Corner</title>
+
+    <style>
+        /* Basic Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center the navigation buttons */
+            background-color: #444;
+            padding: 10px 20px;
+            position: relative; /* For logo positioning */
+        }
+
+        .logo {
+            position: absolute; /* Position the logo absolutely */
+            left: 20px; /* Distance from the left */
+            height: 50px; /* Adjust based on your logo's size */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('MeatMain.jpg') no-repeat center center/cover;
+            color: #fff;
+            padding: 100px 50px;
+            text-align: center;
+        }
+
+        .hero h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; margin-bottom: 20px; }
+
+        .hero .btn-shop {
+            background-color: #ff6600;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero .btn-shop:hover { background-color: #e65c00; }
+
+        /* Product Section */
+        .products { padding: 30px 10px; text-align: center; }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .product-card img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .product-card h3 { font-size: 1.5rem; margin: 10px 0; }
+        .product-card button {
+            background-color: #ff6600;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+        }
+        .product-card button:hover { background-color: #e65c00; }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer-links a:hover { color: #ff6600; }
+		
+		/* Footer */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px 20px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #ff6600;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #ff6600;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ff6600;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+   <header>
+        <div class="top-bar">
+            <h5>We deliver within Metro Manila. | Free delivery on orders ₱3,500 and above!</h5>
+        </div>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<img src="Media5.jpg" alt="Meaty Corner Logo" class="logo">
+        <div class="container">
+
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item">
+    <a class="nav-link" href="cart.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count" class="badge bg-danger">0</span> <!-- Cart Count -->
+    </a>
+</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>The Meaty Corner</h2>
+        <p>Top-quality meats, now your ultimate choice</p>
+        <a href="products.html" class="btn-shop">Shop Now</a>
+    </section>
+
+    <!-- Products -->
+    <section class="products" id="products">
+        <h2>Our Products</h2>
+        <h3><i>Quality meats at unbeatable prices.</i></h3>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="Beef.jpg" alt="Beef">
+                <h3>Beef</h3>
+                <p>Premium-quality beef cuts, perfect for grilling, roasting, or slow-cooked dishes.</p>
+                <p>Starts at ₱400/kg</p>
+                <button><a href="products.html" style="color: #fff; text-decoration: none;">More Products</a></button>
+            </div>
+            <div class="product-card">
+                <img src="Chicken.jpg" alt="Chicken">
+                <h3>Chicken</h3>
+                <p>Fresh and tender chicken breasts and thighs, ideal for various dishes.</p>
+                <p>Starts at ₱210/kg</p>
+                <button><a href="products.html" style="color: #fff; text-decoration: none;">More Products</a></button>
+            </div>
+            <div class="product-card">
+                <img src="Pork.jpg" alt="Pork">
+                <h3>Pork</h3>
+                <p>Juicy pork chops and ribs, carefully selected for tenderness and flavor.</p>
+                <p>Starts at ₱380/kg</p>
+                <button><a href="products.html" style="color: #fff; text-decoration: none;">More Products</a></button>
+            </div>
+        </div>
+    </section>
+
+ <div class ="footer">
+        <div class="footer-container">
+            <!-- Contact  -->
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <p>Email: info@meatyconer.ph</p>
+                <p>Phone: +63 123 456 7890</p>
+                <p>Address: 123 Meaty Corner Street, Manila, Philippines</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a><br>
+				<a href="products.html">Products</a><br>
+                <a href="about.html">About Us</a><br>
+                <a href="contact.html">Contact</a><br>
+                <a href="cart.html">Cart</a>
+            </div>
+
+            <!-- SocMed -->
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>                    
+                </div>
+            </div>
+        </div>
+		
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Meaty Corner. All rights reserved.</p>
+		<p>ACOMPAÑADO, ACPAL, DAUZ, MENDEZ, TOMINES</p>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Initialize cart from localStorage (or empty array if not available)
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Function to add products to the cart
+    function addToCart(product) {
+        let existingProduct = cart.find(item => item.name === product.name);
+
+        if (existingProduct) {
+            // If product is already in the cart, update the quantity
+            existingProduct.quantity += product.quantity;
+        } else {
+            // If product is not in the cart, add it
+            cart.push(product);
+        }
+
+        // Save updated cart to localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Update cart count notification
+        updateCartCount();
+
+        // Alert user and log cart
+        alert(product.name + " has been added to your cart!");
+        console.log(cart);
+    }
+
+    // Function to update cart item count in the notification
+    function updateCartCount() {
+        const cartCount = cart.reduce((total, product) => total + product.quantity, 0);
+        document.getElementById('cart-count').textContent = cartCount;
+    }
+
+    // Update cart count when page loads (persistent across page refreshes)
+    window.onload = function() {
+        updateCartCount();
+    };
+</script>
+
+</body>
+</html>

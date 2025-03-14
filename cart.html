@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap & FontAwesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <title>Cart</title>
+
+    <style>
+        /* Basic Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center the navigation buttons */
+            background-color: #444;
+            padding: 10px 20px;
+            position: relative; /* For logo positioning */
+        }
+
+        .logo {
+            position: absolute; /* Position the logo absolutely */
+            left: 20px; /* Distance from the left */
+            height: 50px; /* Adjust based on your logo's size */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        /* Cart button styling */
+        button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #d32f2f;
+        }
+
+        /* Cart item styling */
+        .product-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* Notification styling */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .notification.show {
+            display: block;
+            opacity: 1;
+        }
+
+         /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer-links a:hover { color: #ff6600; }
+		
+		/* Footer */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px 20px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #ff6600;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #ff6600;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ff6600;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+ <header>
+        <div class="top-bar">
+            <h5>We deliver within Metro Manila. | Free delivery on orders ₱3,500 and above!</h5>
+        </div>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<img src="Media5.jpg" alt="Meaty Corner Logo" class="logo">
+        <div class="container">
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cart-count" class="badge bg-danger">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2>Your Cart</h2>
+        <div id="cart-items">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+        <hr>
+        <div id="total-price">
+            <!-- Total price will be dynamically calculated here -->
+        </div>
+        <button id="purchase-btn">Purchase</button>
+    </div>
+
+    <!-- Success Notification -->
+    <div id="success-notification" class="notification">
+        Purchase Successful!
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <p>Email: info@meatycorner.ph</p>
+                <p>Phone: +63 123 456 7890</p>
+                <p>Address: 123 Meaty Corner Street, Manila, Philippines</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a><br>
+				<a href="products.html">Products</a><br>
+                <a href="about.html">About Us</a><br>
+                <a href="contact.html">Contact</a><br>
+                <a href="cart.html">Cart</a>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                     <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>                    
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Meaty Corner. All rights reserved.</p>
+			<p>ACOMPAÑADO, ACPAL, DAUZ, MENDEZ, TOMINES</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+<script>
+// Function to add items to the cart
+function addToBasket(button) {
+    const productCard = button.closest('.product-card');
+    const productName = productCard.getAttribute('data-name');
+    const productPrice = productCard.getAttribute('data-price');
+    
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    const existingItemIndex = cart.findIndex(item => item.name === productName);
+    
+    if (existingItemIndex !== -1) {
+        cart[existingItemIndex].quantity += 1;
+    } else {
+        cart.push({
+            name: productName,
+            price: parseFloat(productPrice),
+            quantity: 1
+        });
+    }
+    
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+    showNotification(`${productName} added to cart!`);
+    updateCartCount();
+    renderCartItems();  
+}
+
+// Function to show purchase notification
+function purchaseItems() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
+    // Show purchase success notification
+    const notification = document.getElementById('success-notification');
+    notification.classList.add('show');
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 3000);
+
+    // Clear the cart after purchase
+    localStorage.setItem('cart', JSON.stringify([]));
+    updateCartCount();
+    renderCartItems();
+}
+
+// Function to render cart items
+// Function to render cart items
+function renderCartItems() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartItemsContainer = document.getElementById('cart-items');
+    
+    cartItemsContainer.innerHTML = '';  // Clear current items
+
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+    } else {
+        cart.forEach((item, index) => {
+            const itemElement = document.createElement('div');
+            itemElement.classList.add('product-card');
+            
+            itemElement.innerHTML = `
+                <h5>${item.name}</h5>
+                <p>Price: ₱${item.price.toFixed(2)}</p>
+                <p>Quantity: ${item.quantity}</p>
+                <p>Total: ₱${(item.price * item.quantity).toFixed(2)}</p>
+                <button onclick="removeItem(${index})">Remove</button>
+            `;
+            
+            cartItemsContainer.appendChild(itemElement);
+        });
+    }
+
+    // Calculate total price
+    const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+    document.getElementById('total-price').innerHTML = `<strong>Total Price: ₱${totalPrice.toFixed(2)}</strong>`;
+}
+
+
+function removeItem(index) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Remove only the item at the specified index
+    cart.splice(index, 1);  // Removes the item at the given index
+    
+    // Save the updated cart back to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+    // Update the cart count and re-render cart items
+    updateCartCount();
+    renderCartItems(); 
+}
+
+// Event listener to handle when the page loads
+window.addEventListener('load', () => {
+    updateCartCount();
+    renderCartItems();
+});
+
+// Event listener for purchase button
+document.getElementById('purchase-btn').addEventListener('click', purchaseItems);
+
+// Function to update cart item count
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+    const cartCount = document.getElementById('cart-count');
+    if (cartCount) {
+        cartCount.textContent = totalItems;
+    }
+}
+
+// Function to show notification
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.classList.add('notification');
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,451 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap & FontAwesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <title>Meaty Corner</title>
+
+    <style>
+        /* Basic Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center the navigation buttons */
+            background-color: #444;
+            padding: 10px 20px;
+            position: relative; /* For logo positioning */
+        }
+
+        .logo {
+            position: absolute; /* Position the logo absolutely */
+            left: 20px; /* Distance from the left */
+            height: 50px; /* Adjust based on your logo's size */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('MeatMain.jpg') no-repeat center center/cover;
+            color: #fff;
+            padding: 100px 200px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .hero button {
+            background-color: #ff6600;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .hero button:hover {
+            background-color: #e65c00;
+        }
+
+        /* About Section */
+        main {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .butch {
+            display: block;
+            width: 100%;
+            max-height: 500px;
+            border-radius: 10px;
+        }
+
+        .Misvis { 
+            text-indent: 50px;
+            text-align: justify;
+            color: #555;
+            line-height: 1.6;
+            margin: 0px;
+        }
+
+        /* Meet Our Team */
+        .team-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #fff;
+        }
+
+        .team-section .title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .col-3 {
+            text-align: center;
+            width: 250px;
+        }
+
+        .col-3 img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .col-3 h3 {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        .col-3 p {
+            font-size: 1rem;
+            color: #777;
+        }
+
+        .title {
+            text-align: center;
+            margin: 0px auto 80px;
+            position: relative;
+            line-height: 60px;
+            color: #555;
+        }
+
+        .title::after {
+            content: ""; /* will place divider after title content */
+            background: #ff523b; /* color of divider */
+            width: 80px;
+            height: 5px;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 0; /* Remove margin-top to keep footer aligned with the bottom */
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-links a:hover { color: #ff6600; }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px 20px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #ff6600;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #ff6600;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ff6600;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="top-bar">
+            <h5>
+We deliver within Metro Manila. | Free delivery on orders ₱3,500 and above!
+            </h5>
+        </div>
+    </header>
+
+        <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<img src="Media5.jpg" alt="Meaty Corner Logo" class="logo">
+        <div class="container">
+
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item">
+    <a class="nav-link" href="cart.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count" class="badge bg-danger">0</span> <!-- Cart Count -->
+    </a>
+</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <main>
+        <!-- About Us Section -->
+        <img src="butch.jpg" class="butch" alt="Table" width="1000" height="300">
+        <section id="AboutUs">    
+            <h2 class="title">About Us</h2>
+            <p class="Misvis">
+                Welcome to Meaty Corner—your trusted source for premium, ethically sourced meats. Our commitment to quality, freshness, and sustainability
+                ensures that every cut meets the highest standards. We take pride in offering farm-to-table meats while supporting local farmers and responsible 
+                sourcing. Whether you're a home cook, professional chef, or meat enthusiast, our selection is carefully curated to enhance your culinary experience.
+            </p>
+            <p class="Misvis">
+                At Meaty Corner, we believe in providing the finest cuts without compromising sustainability or ethical practices. Join us in embracing a new standard
+                of meat shopping—where taste meets responsibility.
+            </p>
+        </section>
+
+        <section id="VisionMission">
+            <h2 class="title">Vision & Mission</h2>
+            <h3>Our Mission</h3>
+            <p class="Misvis">
+                At Meaty Corner, our mission is to provide high-quality, ethically sourced meats while championing sustainable farming practices. We are committed to 
+                supporting local farmers, ensuring food transparency, and delivering an exceptional meat-buying experience. By prioritizing freshness, flavor, and ethics,
+                we aim to create a more responsible food system for future generations.
+            </p>
+
+            <h3>Our Vision</h3>
+            <p class="Misvis">
+                We envision a world where everyone has access to premium, sustainably sourced meat, where environmental responsibility and community support guide 
+                the future of food. Meaty Corner aspires to be the leading provider of responsibly sourced meats, revolutionizing the way consumers shop and eat with 
+                integrity and care.
+            </p>
+        </section>
+    </main>
+
+    <!-- Meet Our Team Section -->
+    <section class="team-section">
+        <h2 class="title">Meet Our Team</h2>
+        <div class="row">
+            <div class="col-3">
+                <img src="team-1.jpg" alt="Team Member 1">
+                <h3>Gio Acompañado</h3>
+                <p>CEO</p>
+            </div>
+            <div class="col-3">
+                <img src="team-1.jpg" alt="Team Member 2">
+                <h3>Mark Acpal</h3>
+                <p>Operations Manager</p>
+            </div>
+            <div class="col-3">
+                <img src="team-1.jpg" alt="Team Member 3">
+                <h3>Rave Dauz</h3>
+                <p>Sales Manager</p>
+            </div>
+			<div class="col-3">
+                <img src="team-1.jpg" alt="Team Member 4">
+                <h3>Bonzi Mendez</h3>
+                <p>Marketing Manager</p>
+            </div>
+			<div class="col-3">
+                <img src="team-1.jpg" alt="Team Member 5">
+                <h3>Alfonso Tomines</h3>
+                <p>HR Manager</p>
+            </div>
+        </div>
+    </section>
+
+<h2 class="title">Store Location</h2>
+
+<div class="small-container" style="text-align: center;">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.571861378216!2d121.0150107!3d14.566458900000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c9080e6f2abd%3A0x1d5b9be15aad02!2sMap%C3%BAa%20University%20Makati!5e0!3m2!1sen!2sph!4v1741945567892!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+ <div class ="footer">
+        <div class="footer-container">
+            <!-- Contact  -->
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <p>Email: info@meatyconer.ph</p>
+                <p>Phone: +63 123 456 7890</p>
+                <p>Address: 123 Meaty Corner Street, Manila, Philippines</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a><br>
+				<a href="products.html">Products</a><br>
+                <a href="about.html">About Us</a><br>
+                <a href="contact.html">Contact</a><br>
+                <a href="cart.html">Cart</a>
+            </div>
+
+            <!-- SocMed -->
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>                    
+                </div>
+            </div>
+        </div>
+		
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Meaty Corner. All rights reserved.</p>
+		<p>ACOMPAÑADO, ACPAL, DAUZ, MENDEZ, TOMINES</p>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Initialize cart from localStorage (or empty array if not available)
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Function to add products to the cart
+    function addToCart(product) {
+        let existingProduct = cart.find(item => item.name === product.name);
+
+        if (existingProduct) {
+            // If product is already in the cart, update the quantity
+            existingProduct.quantity += product.quantity;
+        } else {
+            // If product is not in the cart, add it
+            cart.push(product);
+        }
+
+        // Save updated cart to localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Update cart count notification
+        updateCartCount();
+
+        // Alert user and log cart
+        alert(product.name + " has been added to your cart!");
+        console.log(cart);
+    }
+
+    // Function to update cart item count in the notification
+    function updateCartCount() {
+        const cartCount = cart.reduce((total, product) => total + product.quantity, 0);
+        document.getElementById('cart-count').textContent = cartCount;
+    }
+
+    // Update cart count when page loads (persistent across page refreshes)
+    window.onload = function() {
+        updateCartCount();
+    };
+</script>
+
+</body>
+</html>
